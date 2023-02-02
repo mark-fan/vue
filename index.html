@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./vue3.js"></script> -->
+    <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.js"></script>
+  </head>
+<body>
+<div id="counter">
+  <!--vue语法,{{}} 告诉vue,这个里面放了一个变量-->
+  <p>{{num}}</p>
+  <p>{{name}}</p>
+</div>
+  <script>
+    const Counter={//配置对象
+        data:function(){
+          return{
+            num:0,
+            name:"luofan"
+          }
+        }
+    }
+    Vue.createApp(Counter).mount('#counter') //创建应用 将配置对象传入
+  </script>
+</body>
+
+</html>
