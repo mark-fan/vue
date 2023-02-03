@@ -1,21 +1,17 @@
-<script>
-//声明式渲染 可以提高开发效率
-export default{
-  data(){
-    return{
-      num:0,
-      name:"zhangsan"
-    }
-  }
-}
+<script setup>
+import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <div>
-    <p>{{num}}</p>
-    <p>{{name}}</p>
+    <a href="https://vitejs.dev" target="_blank">
+      <img src="/vite.svg" class="logo" alt="Vite logo" />
+    </a>
+    <a href="https://vuejs.org/" target="_blank">
+      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+    </a>
   </div>
-  
+  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
