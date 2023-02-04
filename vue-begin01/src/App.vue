@@ -8,7 +8,9 @@ export default{
       name:"luofan",
       msg:'<h2>标题</h2>',
       id:'d1',
-      url:'https://img12.360buyimg.com/seckillcms/s140x140_jfs/t1/51326/23/21454/20614/63d8e210Ff06e6e55/5d859c31a6af098d.jpg.webp'
+      url:'https://img12.360buyimg.com/seckillcms/s140x140_jfs/t1/51326/23/21454/20614/63d8e210Ff06e6e55/5d859c31a6af098d.jpg.webp',
+      antributeName:'id',
+      mouseEvent:"click"
     }
   },
   methods:{
@@ -38,7 +40,26 @@ export default{
     <p v-bind:id="id">v-bind绑定</p>
     <img v-bind:src="url">
     <p id="d2">蓝色</p>
+    <!-- javaScript表达式 结果是一样的 -->
     <button @click="changeColor">修改颜色</button>
+    <button @click="id=d2">修改颜色</button>
+
+    <p>{{num+10}}</p>
+    <p>{{name.split('').reverse().join('') }}</p>
+    <p v-bind:id="id+1">v-bind绑定</p>
+    <!-- v-bind 语法糖 ： -->
+    <p :id="id">语法糖</p>
+    <!-- v-on :用于监听DOM事件 -->
+    <button v-on:click="changeColor">改变颜色</button>
+    <!-- v-on 语法糖 @ -->
+    <button @click="id=d2">修改颜色</button>
+    <!-- 动态参数 -->
+    <!-- 动态属性 -->
+    <p v-bind:[antributeName]="id">v-bind绑定</p>
+    <button @click="antributeName='class'">改变属性</button>
+    <!-- 动态事件 -->
+    <button @[mouseEvent]="antributeName='class'">改变属性</button>
+    <button @click="mouseEvent='mouseover'">改变事件</button>
   </div>
 </template>
 
@@ -62,5 +83,9 @@ export default{
 
 #d2{
   color: blue;
+}
+
+.d1{
+  font-size:50px;
 }
 </style>
