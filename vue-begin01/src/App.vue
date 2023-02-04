@@ -12,9 +12,12 @@ export default{
     }
   },
   methods:{
-    changName:function(){
+    changeName:function(){
       // this指向vue实例
       this.name = 'luofanfan'
+    },
+    changeColor:function(){
+      this.id='d2'
     }
   }
 }
@@ -27,12 +30,15 @@ export default{
     <p>{{name}}</p>
     <!-- v-once：当我的数据发生变化，插值处数据不再变化 -->
     <p v-once>{{name}}</p> 
-    <button @click="changName">改变名字</button>
+    <button @click="changeName">改变名字</button>
     <p>{{msg}}</p>
     <!-- v-html:将我们的数据当作html显示 -->
     <p v-html="msg"></p>
+    <!-- v-bind :基于绑定属性的内容 -->
     <p v-bind:id="id">v-bind绑定</p>
     <img v-bind:src="url">
+    <p id="d2">蓝色</p>
+    <button @click="changeColor">修改颜色</button>
   </div>
 </template>
 
@@ -50,4 +56,11 @@ export default{
   filter: drop-shadow(0 0 2em #42b883aa);
 }
 
+#d1{
+  color: red;
+}
+
+#d2{
+  color: blue;
+}
 </style>
