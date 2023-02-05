@@ -8,9 +8,22 @@ export default{
   },
   // 计算属性  
   computed:{ //只要依赖值不变  就不会重新计算 计算属性将基于他们的响应依赖关系缓存，提高性能
-    reverseMessage:function(){
-      console.log("计算属性");
-      return this.message.split(' ').reverse().join(' ')
+    // 简写
+    // reverseMessage:function(){
+    //   console.log("计算属性");
+    //   return this.message.split(' ').reverse().join(' ')
+    // }
+    // 每一个计算属性中 都有一个get/set方法
+    // 完整写法 
+    reverseMessage:{
+      get:function(){
+        return this.message.split(' ').reverse().join(' ')
+      },
+      // 一般是没有setter方法的，计算属性属于只读操作
+      set:function(newVaule){ //在设置或者更改计算属性的时候调用
+        console.log(newVaule);
+        this.message=newVaule;
+      }
     }
   },
   methods:{
@@ -40,6 +53,7 @@ export default{
   <p>{{reverseMsg()}}</p>
   <p>{{reverseMsg()}}</p>
   <button @click="message='nihao'">改变message</button>
+  <button @click="reverseMessage='你好'">改变message1</button>
 
 </template>
 
