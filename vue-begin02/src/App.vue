@@ -2,59 +2,42 @@
 export default{
   data:function(){
    return {
-    message:"hello world",
+    message:"你好",
     id:1
    }
   },
-  // 计算属性  
-  computed:{ //只要依赖值不变  就不会重新计算 计算属性将基于他们的响应依赖关系缓存，提高性能
-    // 简写
-    // reverseMessage:function(){
-    //   console.log("计算属性");
-    //   return this.message.split(' ').reverse().join(' ')
-    // }
-    // 每一个计算属性中 都有一个get/set方法
-    // 完整写法 
-    reverseMessage:{
-      get:function(){
-        return this.message.split(' ').reverse().join(' ')
-      },
-      // 一般是没有setter方法的，计算属性属于只读操作
-      set:function(newVaule){ //在设置或者更改计算属性的时候调用
-        console.log(newVaule);
-        this.message=newVaule;
+  methods:{
+    
+  },
+  // watch:{ //监听数据的变化
+  //   // 每当message发生变化时 就会调用下面的函数
+  //   message:function(newValue,oldValue){// 一个数据会影响多个数据
+  //     console.log(newValue);
+  //     console.log(oldValue);
+  //     //执行异步操作或者比较复杂的逻辑代码
+  //     if(newValue.length<5 ||newValue.length>10){
+  //       console.log("输入框的内容不能小于5或者大于10");
+  //     }
+  //   }
+  // }
+  watch:{
+    message:{
+    immediate:true,//初始化的时候调用函数
+    handler:function(newValue){
+      console.log(newValue);
+      if(newValue.length<5 ||newValue.length>10){
+        console.log("输入框的内容不能小于5或者大于10");
       }
     }
-  },
-  methods:{
-    reverseMsg:function(){
-      console.log("methods");
-      return this.message.split('').reverse().join('')
-    }
   }
-
+  }
 }
 </script>
 
-
-
 <template>
-  <p>{{message}}</p>
-  <!-- 第一种：使用js表达式 -->
-  <p>{{message.split(' ').reverse().join(' ')}}</p>
-  <p>{{message.split(' ').reverse().join(' ')}}</p>
-  <p>{{message.split(' ').reverse().join(' ')}}</p>
-  <!-- 第二种使用计算属性 -->
-  <p>{{reverseMessage}}</p>
-  <p>{{reverseMessage}}</p>
-  <p>{{reverseMessage}}</p>
-  <!-- 第三种 使用methods方法 -->
-  <p>{{reverseMsg()}}</p>
-  <p>{{reverseMsg()}}</p>
-  <p>{{reverseMsg()}}</p>
-  <button @click="message='nihao'">改变message</button>
-  <button @click="reverseMessage='你好'">改变message1</button>
-
+  <button @click="message='你好'">改变message</button>
+  <!-- 数据的双向绑定 -->
+  <input type="text" v-model="message">
 </template>
 
 <style scoped>
