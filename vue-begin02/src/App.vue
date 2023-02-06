@@ -3,7 +3,11 @@ export default{
   data:function(){
    return {
     message:"你好",
-    id:1
+    id:1,
+    user:{
+      name:"mark",
+      age:16
+    }
    }
   },
   methods:{
