@@ -6,14 +6,15 @@ export default{
     id:1,
     user:{
       name:"mark",
-      age:16
+      age:16,
+      sex:"男"
     }
    }
   },
   methods:{
     
   },
-  // watch:{ //监听数据的变化
+  // watch:{ //监听数据的变化,但是不能监听对象的属性变化
   //   // 每当message发生变化时 就会调用下面的函数
   //   message:function(newValue,oldValue){// 一个数据会影响多个数据
   //     console.log(newValue);
@@ -24,7 +25,7 @@ export default{
   //     }
   //   }
   // }
-  watch:{
+  watch:{//不能监听对象的属性变化,需要使用到深度监听
     message:{
     immediate:true,//初始化的时候调用函数
     handler:function(newValue){
@@ -33,6 +34,23 @@ export default{
         console.log("输入框的内容不能小于5或者大于10");
       }
     }
+  },
+  // user:function(newValue){
+  //   console.log(newvalue);
+  // }
+
+  // user:{
+  //   handler:function(newValue){
+  //     console.log(newValue);
+  //   },
+  //   deep:true, //表示是否深度监听，侦听器会一层层向下遍历
+  // }
+
+  "user.name":{ //使用字符串的方式进行优化 实现对象单属性的监听
+    handler:function(newValue){
+      console.log(newValue);
+    },
+    deep:true, //表示是否深度监听，侦听器会一层层向下遍历
   }
   }
 }
@@ -42,6 +60,8 @@ export default{
   <button @click="message='你好'">改变message</button>
   <!-- 数据的双向绑定 -->
   <input type="text" v-model="message">
+  <p>{{user.name}}</p>
+  <button @click="user.name='lisi'">修改名字</button>
 </template>
 
 <style scoped>
