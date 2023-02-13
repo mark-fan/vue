@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // js 弱数据类型 ，只有赋值了以后才会指导其数据类型
+        // 隐式转换
+        // + 号 两边是要有一个是字符串 都会把另一个转成字符串
+        // 除了+号以外 其他运算符 都会做数字类型
+        // 显示转换
+        let num = '12312'
+        console.log(Number(num))
+        num = '123.33'
+        console.log(parseInt(num))
+        console.log(parseInt('12px'))
+        console.log(parseFloat(num))
+
+        let num1 = +prompt('请输入第一个数字')
+        let num2 = +prompt('请输入第二个数字')
+        alert(num1 + num2)
+
+    </script>
+</body>
+
+</html>
