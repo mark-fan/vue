@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 逻辑短路 
+        // 逻辑或运算符 ||  左边为真  右边就不再执行
+        // 逻辑与运算符 &&  左边为假  右边就不再执行 
+
+        function getsum(x, y) {
+            x = x || 0;
+            y = y || 0;
+            alert(x+y)
+        }
+        getsum(1, 2);
+        getsum(false,1)
+
+        // Boolean : 0 null '' undefind
+
+    </script>
+</body>
+
+</html>
