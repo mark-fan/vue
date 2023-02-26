@@ -5,32 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>手机充电特效</title>
-    <link rel="stylesheet" href="./index.css">
     <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+    <title>Document</title>
 </head>
 
 <body>
-    <div class="box">
-        <div class="number"><span>25.00</span>%</div>
-        <div class="contrast">
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble-home"></div>
-            <div class="circle"></div>
-        </div>
-    </div>
+    <div id="num"><span>25.00</span>%</div>
     <script>
         setInterval(function () {
-            var num = $('.number span').text()
+            var num = $('#num span').text()
             const random = Math.random()
             var new_num = Number(num) + toDecimal(random)
             console.log(num);
             console.log(new_num)
-            $('.number span').html(toDecimal(new_num))
+            $('#num span').html(toDecimal(new_num))
 
         }, 2000)
 
