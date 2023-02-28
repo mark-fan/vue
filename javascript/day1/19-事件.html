@@ -10,11 +10,32 @@
     <input type="text">
     <button>点击</button>
     <script>
+        // 点击事件
        const btn =  document.querySelector('button')
         btn.addEventListener('click',function(){
             const ipt = document.querySelector('input')
             alert( ipt.value)
             ipt.type = 'password'
+        })
+        // 焦点事件
+        const put = document.querySelector('input')
+        put.addEventListener('focus',function(){
+            console.log('有焦点触发')
+        })
+        put.addEventListener('blur',function(){
+            console.log('失去焦点触发')
+        })
+        //键盘事件
+        put.addEventListener('keydown' ,function(){
+            console.log('键盘按下');
+        })
+
+        put.addEventListener('keyup' ,function(){
+            console.log('键盘弹起');
+        })
+        // 用户输入文本事件
+        put.addEventListener('input',function(){
+            console.log(put.value);
         })
     </script>
 </body>
